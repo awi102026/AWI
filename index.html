@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aging Wonderfully Innovators | AgeTech Advisory & Senior Home Safety</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            500: '#0d9488',
+                            600: '#0f766e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .font-brand-uniform {
+            font-family: 'Inter', system-ui, sans-serif !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.02em !important;
+        }
+        .large-text-mode {
+            font-size: 1.15rem !important;
+        }
+        .large-text-mode h1 { font-size: 3rem !important; }
+        .large-text-mode h2 { font-size: 2.5rem !important; }
+        .large-text-mode p { font-size: 1.35rem !important; }
+    </style>
+</head>
+<body id="body-root" class="bg-slate-50 text-slate-800 font-sans antialiased transition-all duration-200">
+
+    <!-- TOP UTILITY BAR (TIER 1) -->
+    <div class="bg-slate-900 text-slate-200 py-2.5 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm gap-y-2">
+            <div class="flex items-center space-x-6">
+                <a href="tel:4707910388" class="flex items-center hover:text-white transition-colors">
+                    <i class="fas fa-phone mr-2 text-brand-400"></i>
+                    <span class="font-medium">470-791-0388</span>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="flex items-center hover:text-white transition-colors">
+                    <i class="fab fa-linkedin text-brand-400 text-base mr-2"></i>
+                    <span class="font-medium">LinkedIn</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex items-center space-x-2 text-slate-300">
+                    <i class="fas fa-user-shield text-amber-400"></i>
+                    <span class="text-xs font-semibold uppercase tracking-wider">Certified Senior Advisor (CSA)® & Certified AgeTech Specialist</span>
+                </div>
+                <button id="text-resize-btn" onclick="toggleTextSize()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1 rounded border border-slate-700 text-xs font-semibold flex items-center transition-colors" title="Toggle Larger Font Size">
+                    <i class="fas fa-font text-xs mr-1.5"></i>
+                    <span id="text-resize-label">Large Text: Off</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION BAR (TIER 2) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+            <div class="flex justify-between items-center gap-4">
+                
+                <!-- BRAND LOGO & TITLE -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="bg-brand-700 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-brand-800 transition-colors">
+                        AWI
+                    </div>
+                    <div>
+                        <span class="font-brand-uniform text-2xl sm:text-3xl text-slate-900 block leading-tight">
+                            Aging Wonderfully Innovators
+                        </span>
+                    </div>
+                </a>
+
+                <!-- MAIN NAV & CTA -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <nav class="flex space-x-6 text-sm font-semibold text-slate-700">
+                        <a href="#services" class="hover:text-brand-700 transition-colors py-1">Services</a>
+                        <a href="#assisted-living" class="hover:text-brand-700 transition-colors py-1">Assisted Living Finder</a>
+                        <a href="#assessment" class="hover:text-brand-700 transition-colors py-1">Self-Assessment</a>
+                        <a href="#about" class="hover:text-brand-700 transition-colors py-1">About Us</a>
+                        <a href="#contact" class="hover:text-brand-700 transition-colors py-1">Contact</a>
+                    </nav>
+                    <a href="#contact" class="bg-brand-700 hover:bg-brand-800 text-white font-semibold px-5 py-2.5 rounded-lg shadow transition-colors text-sm flex items-center">
+                        <i class="fas fa-calendar-check mr-2"></i>
+                        Book Assessment
+                    </a>
+                </div>
+
+                <!-- MOBILE MENU BUTTON -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-slate-700 hover:text-brand-700 p-2 text-xl focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- MOBILE MENU DROPDOWN -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-slate-100 flex flex-col space-y-3">
+                <a href="#services" onclick="toggleMobileMenu()" class="text-slate-700 font-medium py-2 hover:text-brand-700">Services</a>
+                <a href="#assisted-living" onclick="toggleMobileMenu()" class="text-slate-700 font-medium py-2 hover:text-brand-700">Assisted Living Finder</a>
+                <a href="#assessment" onclick="toggleMobileMenu()" class="text-slate-700 font-medium py-2 hover:text-brand-700">Self-Assessment</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="text-slate-700 font-medium py-2 hover:text-brand-700">About Us</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="text-slate-700 font-medium py-2 hover:text-brand-700">Contact</a>
+                <div class="pt-2 border-t border-slate-100 flex flex-col space-y-2">
+                    <a href="tel:4707910388" class="text-brand-700 font-bold flex items-center py-2">
+                        <i class="fas fa-phone mr-2"></i> 470-791-0388
+                    </a>
+                    <a href="#contact" onclick="toggleMobileMenu()" class="bg-brand-700 text-white font-semibold text-center py-2.5 rounded-lg">
+                        Book Assessment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="bg-gradient-to-b from-blue-50 via-white to-slate-50 pt-12 md:pt-16 lg:pt-20 pb-16 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-brand-50 border border-brand-200 text-brand-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                        <i class="fas fa-shield-alt text-brand-600"></i>
+                        <span>Unbiased AgeTech Advisory & Home Safety</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+                        Empowering Seniors to Live <span class="text-brand-700">Safely & Independently</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-600 leading-relaxed">
+                        At <strong class="font-semibold text-slate-900">Aging Wonderfully Innovators</strong>, we provide expert, unbiased technology advisory, digital readiness evaluations, home safety environmental audits, and guided senior placement services. We do not sell hardware or devices—our sole focus is delivering tailored recommendations and guidance that serve your best interests.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                        <a href="#assessment" class="bg-brand-700 hover:bg-brand-800 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg transition-all text-center flex items-center justify-center">
+                            <i class="fas fa-clipboard-check mr-2"></i> Start Free Assessment
+                        </a>
+                        <a href="#services" class="bg-white hover:bg-slate-100 text-slate-800 font-bold text-base px-8 py-4 rounded-xl shadow border border-slate-300 transition-all text-center flex items-center justify-center">
+                            Explore Advisory Services
+                        </a>
+                    </div>
+
+                    <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-slate-200 text-xs font-semibold text-slate-600">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-emerald-600 text-base"></i>
+                            <span>100% Independent Guidance</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-emerald-600 text-base"></i>
+                            <span>Certified CSA® Credential</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-emerald-600 text-base"></i>
+                            <span>AgeTech Specialist</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-200 space-y-6">
+                        <div class="border-b border-slate-100 pb-4">
+                            <span class="text-xs font-bold text-brand-700 uppercase tracking-wider block mb-1">Schedule a Consultation</span>
+                            <h3 class="text-2xl font-bold text-slate-900">Speak With William Harris</h3>
+                            <p class="text-sm text-slate-600 mt-1">Certified Senior Advisor (CSA)® & Certified AgeTech Specialist</p>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-slate-700">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-phone-alt text-brand-700 mt-1"></i>
+                                <div>
+                                    <strong class="block text-slate-900">Direct Phone:</strong>
+                                    <a href="tel:4707910388" class="text-brand-700 hover:underline font-semibold">470-791-0388</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fab fa-linkedin text-brand-700 text-base mt-1"></i>
+                                <div>
+                                    <strong class="block text-slate-900">Professional Profile:</strong>
+                                    <a href="https://linkedin.com" target="_blank" class="text-brand-700 hover:underline">Connect on LinkedIn</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-map-marker-alt text-brand-700 mt-1"></i>
+                                <div>
+                                    <strong class="block text-slate-900">Service Area:</strong>
+                                    <span>Greater Atlanta Metropolitan Area & Remote Consultations</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="tel:4707910388" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl shadow transition-colors flex items-center justify-center text-sm">
+                            <i class="fas fa-phone-alt mr-2"></i> Call 470-791-0388
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES SECTION -->
+    <section id="services" class="py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-brand-700 uppercase tracking-wider block mb-2">Our Advisory Offerings</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Comprehensive Advisory & Safety Solutions</h2>
+                <p class="text-slate-600 mt-4 text-lg">We evaluate, advise, and guide you toward the right solutions without selling devices or taking vendor kickbacks.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- SERVICE CARD 1 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">AgeTech & Digital Readiness Advisory</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        We help families select and configure intuitive smart technologies based on cognitive and physical dexterity requirements.
+                    </p>
+                    <ul class="text-xs text-slate-700 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-brand-700 mr-2"></i> Smart Fall Monitoring & Wearables</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-700 mr-2"></i> Smart Medication Dispensing Systems</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-700 mr-2"></i> Video Doorbell & Security Audit</li>
+                    </ul>
+                </div>
+
+                <!-- SERVICE CARD 2 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Physical Home Environmental Safety Audit</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        A thorough room-by-room environmental assessment designed to identify and eliminate fall hazards and physical safety risks.
+                    </p>
+                    <ul class="text-xs text-slate-700 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-brand-700 mr-2"></i> Entrance & Lighting Verification</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-700 mr-2"></i> Bathroom Grab Bar & Mat Check</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-700 mr-2"></i> Walkway & Tripping Hazard Remediation</li>
+                    </ul>
+                </div>
+
+                <!-- SERVICE CARD 3 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Technology Setup & Family Onboarding</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Hands-on guidance to ensure proper setup, family network connections, and smooth adoption for older adults.
+                    </p>
+                    <ul class="text-xs text-slate-700 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-brand-700 mr-2"></i> Wi-Fi Connectivity & Range Optimization</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-700 mr-2"></i> Closed-Network Family Video Setup</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-700 mr-2"></i> Voice-Activated Daily Reminders</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ASSISTED LIVING FINDER SECTION -->
+    <section id="assisted-living" class="py-20 bg-slate-900 text-white border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold text-brand-400 uppercase tracking-wider block">Senior Living Placement</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Assisted Living & Memory Care Finder</h2>
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        Navigating senior living options can feel overwhelming. At <strong class="text-white font-semibold">Aging Wonderfully Innovators</strong>, we provide personalized guidance to help families evaluate, compare, and select top-tier assisted living and memory care communities.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-brand-800 text-brand-300 p-2 rounded-lg mt-1"><i class="fas fa-search"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Tailored Community Matching</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">We match your budget, clinical needs, social preferences, and location requirements with verified communities.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-brand-800 text-brand-300 p-2 rounded-lg mt-1"><i class="fas fa-user-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Independent & Transparent Guidance</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">We advocate directly for senior well-being, helping families ask the right questions during site tours.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-brand-800 text-brand-300 p-2 rounded-lg mt-1"><i class="fas fa-heartbeat"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Memory Care & Safety Vetting</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Thorough evaluation of staffing ratios, safety protocols, and specialized care capabilities.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="tel:4707910388" class="inline-flex items-center bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3.5 rounded-xl shadow transition-colors">
+                            <i class="fas fa-phone-alt mr-2"></i> Speak with a Placement Advisor: 470-791-0388
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 bg-slate-800 p-8 rounded-2xl border border-slate-700">
+                    <h3 class="text-2xl font-bold text-white mb-4">Request Placement Consultation</h3>
+                    <form onsubmit="handleFormSubmit(event)" class="space-y-4 text-sm">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Full Name</label>
+                            <input type="text" required class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-brand-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Phone Number</label>
+                            <input type="tel" placeholder="470-791-0388" required class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-brand-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Care Level Needed</label>
+                            <select class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-brand-500">
+                                <option>Assisted Living</option>
+                                <option>Memory Care</option>
+                                <option>Independent Living with Support</option>
+                                <option>Undecided / Exploring Options</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Preferred Location or Timeline</label>
+                            <textarea rows="3" placeholder="Specify city, area, or ideal move-in timeframe..." class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-brand-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-lg transition-colors">
+                            Submit Placement Inquiry
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SELF-ASSESSMENT TOOL -->
+    <section id="assessment" class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-700 uppercase tracking-wider block mb-2">Interactive Evaluation</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">AgeTech & Home Safety Self-Assessment</h2>
+                <p class="text-slate-600 mt-2 text-sm">Select applicable indicators to generate customized AgeTech advisory recommendations.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-10 space-y-8">
+                
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 flex items-center">
+                        <i class="fas fa-door-open text-brand-700 mr-2"></i> 1. Entryway & Visitor Security
+                    </h3>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <label class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                            <input type="checkbox" onchange="runAssessment()" class="assess-check mt-1" value="doorbell">
+                            <span class="text-xs text-slate-700">Client lives alone or opens door to unknown visitors</span>
+                        </label>
+                        <label class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                            <input type="checkbox" onchange="runAssessment()" class="assess-check mt-1" value="doorbell">
+                            <span class="text-xs text-slate-700">Mobility limits ability to quickly reach front door</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 flex items-center">
+                        <i class="fas fa-heartbeat text-brand-700 mr-2"></i> 2. Emergency Monitoring & Fall Protection
+                    </h3>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <label class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                            <input type="checkbox" onchange="runAssessment()" class="assess-check mt-1" value="watch">
+                            <span class="text-xs text-slate-700">History of falls or unsteady balance</span>
+                        </label>
+                        <label class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                            <input type="checkbox" onchange="runAssessment()" class="assess-check mt-1" value="watch">
+                            <span class="text-xs text-slate-700">Prefers sleek wearable over traditional panic pendant</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 flex items-center">
+                        <i class="fas fa-pills text-brand-700 mr-2"></i> 3. Medication Management
+                    </h3>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <label class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                            <input type="checkbox" onchange="runAssessment()" class="assess-check mt-1" value="hero">
+                            <span class="text-xs text-slate-700">Takes 3+ daily medications at multiple times</span>
+                        </label>
+                        <label class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                            <input type="checkbox" onchange="runAssessment()" class="assess-check mt-1" value="hero">
+                            <span class="text-xs text-slate-700">Family concerns about missed or duplicate doses</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="results-box" class="bg-brand-50 border border-brand-200 p-6 rounded-xl hidden">
+                    <h4 class="text-base font-bold text-brand-900 mb-2">Recommended Advisory Action Plan:</h4>
+                    <ul id="recommendations-list" class="space-y-2 text-xs text-brand-800"></ul>
+                    <div class="mt-4 pt-4 border-t border-brand-200">
+                        <a href="tel:4707910388" class="inline-flex items-center text-xs font-bold text-brand-700 hover:text-brand-800">
+                            <i class="fas fa-phone mr-1.5"></i> Review Results with William Harris: 470-791-0388
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT FOUNDER -->
+    <section id="about" class="py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-xl space-y-4">
+                        <div class="w-20 h-20 bg-brand-700 rounded-full flex items-center justify-center text-3xl font-bold">
+                            WH
+                        </div>
+                        <h3 class="text-2xl font-bold">William Harris, CSA®</h3>
+                        <p class="text-xs font-bold text-brand-400 uppercase tracking-wider">Founder & Senior Advisor</p>
+                        <div class="space-y-2 text-xs text-slate-300 pt-2 border-t border-slate-800">
+                            <p><i class="fas fa-certificate text-amber-400 mr-2"></i> Certified Senior Advisor (CSA)®</p>
+                            <p><i class="fas fa-laptop-code text-brand-400 mr-2"></i> Certified AgeTech Specialist</p>
+                            <p><i class="fas fa-phone text-brand-400 mr-2"></i> 470-791-0388</p>
+                            <p><i class="fab fa-linkedin text-brand-400 mr-2"></i> <a href="https://linkedin.com" target="_blank" class="hover:underline">LinkedIn Profile</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-4">
+                    <span class="text-xs font-bold text-brand-700 uppercase tracking-wider">About Our Founder</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">Dedicated to Senior Empowerment</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Founded by William Harris, CSA® and Certified AgeTech Specialist, <strong class="font-semibold text-slate-900">Aging Wonderfully Innovators</strong> was established to bridge the gap between emerging senior technology and practical home safety. 
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        With extensive experience spanning elder care, healthcare, and technology evaluation, William helps older adults and their family caregivers navigate solutions that enhance independence while maintaining peace of mind.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-slate-200">
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <span class="text-xs font-bold text-brand-700 uppercase tracking-wider block mb-1">Get In Touch</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">Contact Aging Wonderfully Innovators</h2>
+                    <p class="text-slate-600 text-sm mt-2">Call us directly at <strong class="text-slate-900">470-791-0388</strong> or submit an inquiry below.</p>
+                </div>
+
+                <form onsubmit="handleFormSubmit(event)" class="space-y-4 text-sm">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Name</label>
+                            <input type="text" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:border-brand-700">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+                            <input type="tel" placeholder="470-791-0388" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:border-brand-700">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Service Interest</label>
+                        <select class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:border-brand-700">
+                            <option>AgeTech Technology Advisory</option>
+                            <option>Assisted Living Placement Consultation</option>
+                            <option>Home Safety Environmental Audit</option>
+                            <option>General Caregiver Consultation</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">How can we assist you?</label>
+                        <textarea rows="4" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:border-brand-700"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3.5 rounded-xl shadow transition-colors">
+                        Send Consultation Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <span class="font-brand-uniform text-xl text-white block mb-1">
+                        Aging Wonderfully Innovators
+                    </span>
+                    <p class="text-slate-400">Independent AgeTech Advisory, Home Safety Audits & Senior Living Placement</p>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="tel:4707910388" class="hover:text-white font-semibold">
+                        <i class="fas fa-phone text-brand-400 mr-1.5"></i> 470-791-0388
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-white font-semibold">
+                        <i class="fab fa-linkedin text-brand-400 mr-1.5"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-slate-800 text-center text-slate-500 text-xs">
+                © 2026 Aging Wonderfully Innovators LLC. All rights reserved. | www.agingwonderfullyinnovators.com
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function toggleTextSize() {
+            const body = document.getElementById('body-root');
+            const label = document.getElementById('text-resize-label');
+            body.classList.toggle('large-text-mode');
+            if (body.classList.contains('large-text-mode')) {
+                label.innerText = 'Large Text: ON';
+            } else {
+                label.innerText = 'Large Text: Off';
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function runAssessment() {
+            const checks = document.querySelectorAll('.assess-check:checked');
+            const resultsBox = document.getElementById('results-box');
+            const list = document.getElementById('recommendations-list');
+            
+            if (checks.length === 0) {
+                resultsBox.classList.add('hidden');
+                return;
+            }
+
+            resultsBox.classList.remove('hidden');
+            list.innerHTML = '';
+
+            const selectedValues = Array.from(checks).map(c => c.value);
+            
+            if (selectedValues.includes('doorbell')) {
+                list.innerHTML += `<li class="flex items-start"><i class="fas fa-video text-brand-700 mt-1 mr-2"></i><span><strong>Doorway Security Advisory:</strong> Evaluate video doorbell options for remote visitor screening.</span></li>`;
+            }
+            if (selectedValues.includes('watch')) {
+                list.innerHTML += `<li class="flex items-start"><i class="fas fa-clock text-brand-700 mt-1 mr-2"></i><span><strong>Emergency Response & Fall Advisory:</strong> Evaluate wearable fall detection solutions.</span></li>`;
+            }
+            if (selectedValues.includes('hero')) {
+                list.innerHTML += `<li class="flex items-start"><i class="fas fa-pills text-brand-700 mt-1 mr-2"></i><span><strong>Medication Management Advisory:</strong> Assess automated pill dispensing systems.</span></li>`;
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! Your inquiry has been received. William Harris, CSA® will contact you shortly at 470-791-0388.');
+        }
+    </script>
+</body>
+</html>
